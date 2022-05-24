@@ -1,11 +1,11 @@
 exports.middlewareGlobal = (req, res, next) => {
-  res.locals.umaVariavelLocal = 'Este é o valor da variavel local'
+  res.locals.errors = req.flash('errors');
   next();
-} 
+}
 
 //Middleware para tratar o erro de envio de formulario sem o tolen do CSRF.
 exports.checkCsrfError = (error, req, res, next) => {
-  if(error){
+  if (error) {
     return res.render("404");
   }
   next();
