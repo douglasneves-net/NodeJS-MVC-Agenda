@@ -8,6 +8,7 @@ exports.register = async function(req, res) {
 
   try{
     const login = new Login(req.body);
+    
     await login.register();
 
     if (login.errors.length > 0) {
